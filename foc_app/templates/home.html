@@ -1,0 +1,382 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* ===== IMAGE GRID ===== */
+    .grid-container {
+        width: 98%;
+        max-width: 1150px;
+        margin: 40px auto; 
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .grid-item {
+        width: 100%;
+        aspect-ratio: 1 / 1; 
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .center-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        text-align: center;
+        border-radius: 10px;
+        padding: 15px;
+        border: 1px solid #f0f0f0;
+    }
+
+    .center-box h1 {
+        color: #b8860b; 
+        font-size: clamp(0.7rem, 2vw, 1.4rem); 
+        margin: 0;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .center-box p {
+        color: #888;
+        font-size: clamp(0.5rem, 1vw, 0.8rem);
+        margin-top: 6px;
+    }
+
+    /* ===== TEXT SECTION ===== */
+    .bottom-banner {
+        width: 100%;
+        background: #ffe4a3;
+        padding: 60px 0; 
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .bottom-content {
+        width: 85%;
+        max-width: 850px; 
+        text-align: center;
+        font-size: 1.25rem;
+        line-height: 1.8; 
+        color: #5d4a1b;
+    }
+
+    /* ===== TITLE ===== */
+    .section-title {
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+
+    .section-title h1 {
+        font-size: 28px;
+        color: #0a1f44;
+        font-weight: bold;
+    }
+
+    /* ===== POLLUTION SECTION ===== */
+    .pollution-container {
+        width: 100%;
+        background: #0a1f44;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pollution-grid {
+        width: 95%;
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    /* CARD */
+    .pollution-card {
+        background: #1e3f7a;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 12px;
+    }
+
+    .pollution-card:hover {
+        transform: translateY(-8px);
+    }
+
+    .active-card {
+        transform: translateY(-15px) scale(1.05);
+        outline: 3px solid #ffd54f;
+    }
+
+    /* IMAGE */
+    .pollution-card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+    }
+
+    /* LABEL */
+    .label {
+        margin-top: 10px;
+        color: #ffd54f; /* yellow text */
+        font-weight: bold;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* ===== NEW FEATURES STYLING ===== */
+    
+    .solution-intro {
+        width: 85%;
+        max-width: 1000px;
+        text-align: center;
+        margin: 60px auto 30px auto;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .full-screen-img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .triple-image-row {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 0; /* Direct side-by-side */
+    }
+
+    .triple-image-row img {
+        width: 33.33%;
+        height: 350px;
+        object-fit: cover;
+    }
+
+    .action-plan-box {
+        background-color: yellow;
+        color: black;
+        width: 90%;
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 20px;
+        text-align: center;
+        border: 2px solid #000;
+    }
+
+    .action-plan-box h5 {
+        margin: 0;
+        line-height: 1.5;
+        height: 7.5em; /* Approximately 5 lines */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .quote-overlay-container {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        color: white;
+    }
+
+    .quote-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        font-weight: bold;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+        width: 80%;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+        .pollution-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .triple-image-row {
+            flex-direction: column;
+        }
+        .triple-image-row img {
+            width: 100%;
+        }
+    }
+
+    /* QUIZ SECTION */
+
+.quiz-section{
+    width:100%;
+    height:500px;
+    background-image:url('https://wallup.net/wp-content/uploads/2019/09/889754-mountains-landscape-nature-mountain.jpg');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:50px;
+}
+.quiz-overlay{
+    background:rgba(0,255,100,0.25);
+    padding:50px;
+    border-radius:20px;
+    text-align:center;
+    backdrop-filter:blur(5px);
+}
+.quiz-overlay h1{
+    color:white;
+    font-size:45px;
+}
+.quiz-overlay p{
+    color:white;
+    font-size:18px;
+}
+.quiz-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 40px;
+    background:#00cc66;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:20px;
+    transition:0.3s;
+}
+.quiz-btn:hover{
+    background:#00994d;
+    transform:scale(1.05);
+}
+
+</style>
+
+<div class="page-wrapper">
+
+    <div class="grid-container">
+        <img class="grid-item" src="https://publichealth.gwu.edu/sites/g/files/zaxdzs4586/files/2024-03/pollution.png">
+        <img class="grid-item" src="https://www.scobserver.in/wp-content/uploads/2024/11/Delhi-Air-pollution-Featured-scaled.jpg">
+        <img class="grid-item" src="https://www.reuters.com/resizer/v2/JJJ54FFHLFMZRNYEOEPWWPBUSM.jpg?auth=b27b0c6d79d59f439dbfda7a022e2cd3522ae8b7ef8e11a876caeff6a613c056&height=1200&width=1200&quality=80&smart=true">
+
+        <img class="grid-item" src="https://assets.weforum.org/article/image/sjICWTSurxgjTTP_2KyPLVSjeLOWv89qYDDii8eQ_Jc.png">
+
+        <div class="center-box">
+            <h1>Pollution: The Invisible Enemy</h1>
+            <p>What we don't see today may harm us tomorrow</p>
+        </div>
+
+        <img class="grid-item" src="https://cms.accuweather.com/wp-content/uploads/2024/11/Air-pollution-in-Indias-capital-of-Delhi-is-now-at-extreme-and-toxic-level.jpg?w=632">
+        <img class="grid-item" src="https://bsmedia.business-standard.com/_media/bs/img/article/2025-11/28/full/1764303834-2612.jpg">
+        <img class="grid-item" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSFSEU4FQm8yl12XPdaJAgFjzo_jVOFCIRbI99pWVeaUbRXRM0e">
+        <img class="grid-item" src="https://kids.earth.org/wp-content/uploads/2022/08/Untitled-1024-%C3%97-683px-2022-08-25T133207.813.jpg">
+    </div>
+
+    <div class="bottom-banner">
+        <div class="bottom-content">
+            Pollution is not just something we see, but something we experience every day. 
+            It affects the air we breathe, the water we use, and the land we depend on. 
+            By taking small steps today, we can protect our environment and create a healthier future.
+        </div>
+    </div>
+
+    <div class="section-title">
+        <h1>Types of Pollution</h1>
+    </div>
+
+    <div class="pollution-container">
+        <div class="pollution-grid">
+
+           <div class="pollution-card" onclick="window.location.href='/air'">
+                <img src="https://i.ytimg.com/vi/Ju7SCKQbyvc/maxresdefault.jpg">
+                <div class="label">Air Pollution</div>
+            </div>
+
+            <div class="pollution-card" onclick="window.location.href='/water'">
+                <img src="https://img.freepik.com/premium-photo/water-pollution-powerful-message-written-with-polluted-water-effects_1174662-10829.jpg">
+                <div class="label">Water Pollution</div>
+            </div>
+
+            <div class="pollution-card" onclick="window.location.href='/noise'">
+                <img src="https://cache.careers360.mobi/media/article_images/2026/1/1/Noise%20Pollution.jpg">
+                <div class="label">Noise Pollution</div>
+            </div>
+
+            <div class="pollution-card" onclick="window.location.href='/soil'">
+                <img src="https://gyanpulse.com/wp-content/uploads/2026/02/Soil-Pollution-Hidden-Threat-Beneath-Our-Feet-and-Its-Lasting-Environmental-Impact.jpg">
+                <div class="label">Soil Pollution</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="solution-intro">
+        <h2><i>SOLUTION</i></h2>
+        <p>Finding solutions to pollution is vital for the survival of our ecosystems and the health of future generations. It involves transitioning to renewable energy, implementing strict waste management policies, and fostering a global culture of sustainability. By focusing on innovative technology and community action, we can reverse the damage and restore the natural balance of our planet.</p>
+    </div>
+    
+    <img src="https://www.unicef.org/vietnam/sites/unicef.org.vietnam/files/styles/hero_extended/public/Poster%205_Solution%20for%20Air%20Pollution-01.jpg.webp?itok=QGB2GE72" class="full-screen-img" alt="Solution Poster">
+
+    <div class="triple-image-row">
+        <img src="https://www.shutterstock.com/image-photo/serenity-summer-day-durmitor-national-600nw-2623341111.jpg">
+        <img src="https://png.pngtree.com/png-clipart/20250523/original/pngtree-our-earth-responsibility-end-plastic-pollution-png-image_21059606.png">
+        <img src="https://t3.ftcdn.net/jpg/00/56/04/44/360_F_56044460_ToC916mgN9XIURPcNEQMQnRGF41TeJ2y.jpg">
+    </div>
+
+    <div class="action-plan-box">
+        <h1><i>ACTION PLAN</i></h1>
+        <h5>
+            An effective action plan starts with individual accountability and collective policy change.<br>
+            Reduce single-use plastics, support local eco-friendly businesses, and conserve energy at home.<br>
+            Advocate for cleaner industrial standards and participate in local environmental clean-up drives.<br>
+            Educate others about the long-term impacts of waste and lead by example in your daily life.<br>
+            Together, these small actions build a roadmap toward a sustainable and pollution-free world.
+        </h5>
+    </div>
+
+    <!-- QUIZ SECTION -->
+
+<div class="quiz-section">
+    <div class="quiz-overlay">
+        <h1>Pollution Awareness Quiz</h1>
+        <p>
+            Test your environmental knowledge and become an Earth Protector.
+        </p>
+        <a href="/quiz-intro/" class="quiz-btn">
+            Enter Quiz
+        </a>
+    </div>
+</div>
+<br><br><br><br>
+
+    <div class="quote-overlay-container">
+        <img src="https://p0.piqsels.com/preview/500/560/1002/sunset-landscape-evening-sun-nature.jpg" class="full-screen-img">
+        <div class="quote-text">
+            "Earth Provides Enough to Satisfy Everyone's Needs, But Not Everyone's Greed"
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f5f5;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(55%);
+    }
+
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 70px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        text-align: center;
+    }
+
+    /* ===== SECTION ===== */
+    .section {
+        width: 85%;
+        margin: auto;
+        padding: 50px 0;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    h2 {
+        color: #0a1f44;
+        margin-bottom: 20px;
+    }
+
+    /* ===== POLLUTION SECTION (FIXED ROW) ===== */
+     .section-title {
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+
+    .section-title h1 {
+        font-size: 28px;
+        color: #0a1f44;
+        font-weight: bold;
+    }
+
+    .pollution-container {
+        width: 100%;
+        background: #0a1f44;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pollution-grid {
+        width: 95%;
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .pollution-card {
+        background: #1e3f7a;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: 0.3s;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .pollution-card:hover {
+        transform: translateY(-8px);
+    }
+
+    .pollution-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .label {
+        margin-top: 10px;
+        color: #ffd54f;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    /* ===== FINAL MESSAGE ===== */
+    .final {
+        width: 100%;
+        background: #dcedc8;
+        padding: 50px 20px;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .final h2 {
+        color: #1b5e20;
+        font-size: 28px;
+    }
+
+    /* ===== MEMBERS ===== */
+    .members {
+        background: #0a1f44;
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .members h2 {
+        color: #ffd54f;
+    }
+
+    .members ul {
+        list-style: none;
+        padding: 0;
+        font-size: 18px;
+        line-height: 2;
+    }
+
+    .eco-text {
+        margin-top: 20px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #41f12e;
+    }
+
+    /* ===== THANK YOU ===== */
+    .thank-you {
+        background: #fff3cd;
+        padding: 40px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        color: #5d4a1b;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+        .pollution-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+</style>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+    <div class="hero-text">ABOUT THIS PROJECT</div>
+</div>
+
+<!-- ===== WHAT IS POLLUTION ===== -->
+<div class="section">
+    <h2>What is Pollution?</h2>
+    <p>
+        Pollution is the introduction of harmful substances into our environment.
+        It affects air, water, soil, and noise levels, making life unhealthy for humans and nature.
+    </p>
+</div>
+
+<!-- ===== TYPES (NOW FIXED IN ROW) ===== -->
+<div class="section-title">
+        <h1>Types of Pollution</h1>
+</div>
+<div class="pollution-container">
+    
+    <div class="pollution-grid">
+        
+
+        <div class="pollution-card" onclick="window.location.href='/air'">
+            <img src="https://i.ytimg.com/vi/Ju7SCKQbyvc/maxresdefault.jpg">
+            <div class="label">Air Pollution</div>
+        </div>
+
+        <div class="pollution-card" onclick="window.location.href='/water'">
+            <img src="https://img.freepik.com/premium-photo/water-pollution-powerful-message-written-with-polluted-water-effects_1174662-10829.jpg">
+            <div class="label">Water Pollution</div>
+        </div>
+
+        <div class="pollution-card" onclick="window.location.href='/noise'">
+            <img src="https://cache.careers360.mobi/media/article_images/2026/1/1/Noise%20Pollution.jpg">
+            <div class="label">Noise Pollution</div>
+        </div>
+
+        <div class="pollution-card" onclick="window.location.href='/soil'">
+            <img src="https://gyanpulse.com/wp-content/uploads/2026/02/Soil-Pollution-Hidden-Threat-Beneath-Our-Feet-and-Its-Lasting-Environmental-Impact.jpg">
+            <div class="label">Soil Pollution</div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ===== IMPACT ===== -->
+<div class="section">
+    <h2>Why This Matters</h2>
+    <p>
+        Pollution damages health, destroys ecosystems, and affects future generations.
+        Awareness is the first step toward protecting our planet.
+    </p>
+</div>
+
+<!-- ===== FINAL MESSAGE ===== -->
+<div class="final">
+    <h2>Let's Protect Our Planet Together</h2>
+    <p>Small actions create big changes. Reduce • Reuse • Recycle</p>
+</div>
+
+<!-- ===== THANK YOU ===== -->
+<div class="thank-you">
+    🙏 Thank you for visiting our website and supporting environmental awareness!
+</div>
+
+<!-- ===== MEMBERS ===== -->
+<div class="members">
+    <h2>Members List</h2>
+
+    <ul>
+        <li>1. George</li>
+        <li>2. Alan Jaison</li>
+        <li>3. Jessel</li>
+        <li>4. Rejoice</li>
+    </ul>
+
+    <div class="eco-text">
+        Website Created by Eco Guardians
+    </div>
+</div>
+
+{% endblock %}

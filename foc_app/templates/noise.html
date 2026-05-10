@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f5f5;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(55%);
+    }
+
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 70px;
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+
+    /* ===== CONTENT ===== */
+    .content {
+        width: 85%;
+        margin: auto;
+        padding: 40px 0;
+        font-size: 18px;
+        line-height: 1.8;
+        text-align: center;
+    }
+
+    .content p {
+        max-width: 900px;
+        margin: 10px auto;
+    }
+
+    h2 {
+        color: #0a1f44;
+        margin-top: 40px;
+    }
+
+    /* ===== TABLE ===== */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: white;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background: #0a1f44;
+        color: white;
+    }
+
+    /* ===== FULL IMAGE ===== */
+    .full-img {
+        width: 100%;
+        height: 80vh;
+        object-fit: cover;
+        margin-top: 30px;
+    }
+
+    /* ===== MEDIUM IMAGE ===== */
+    .medium-img {
+        width: 70%;
+        display: block;
+        margin: 30px auto;
+        border-radius: 10px;
+    }
+
+    /* ===== CENTER IMAGE ===== */
+    .img {
+        width: 70%;
+        display: block;
+        margin: 30px auto;
+        border-radius: 10px;
+    }
+
+    /* ===== 3 IMAGE ROW ===== */
+    .row-images {
+        width: 70%;
+        margin: 30px auto;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .img1, .img3 {
+        flex: 1;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .img2 {
+        flex: 2;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    /* ===== ORANGE INFO BOX (NEW) ===== */
+    .info-box {
+        width: 100%;
+        margin: 20px auto;
+        background: #ffe0b2;
+        padding: 20px 30px;
+        border-radius: 10px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #4a3b1a;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* ===== FINAL IMAGE TEXT ===== */
+    .final-image {
+        position: relative;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .final-image img {
+        width: 100%;
+        height: 70vh;
+        object-fit: cover;
+    }
+
+    .final-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.5);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+</style>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+    <img src="https://www.thenews.pk/assets/uploads/magazine/2026-03-25/1406219_5701752_chart1_magazine.jpg">
+    <div class="hero-text">NOISE POLLUTION</div>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<div class="content">
+
+    <h2><i>INTRODUCTION</i></h2>
+    <p>
+        Noise pollution refers to unwanted or harmful sounds that disturb the natural balance of life.
+        It is mainly caused by traffic, industries, construction work, and loud speakers.
+    </p>
+
+    <p><b>1. What is noise pollution?</b><br>
+    Noise pollution is excessive sound that causes discomfort and affects human and animal life.</p>
+
+    <p><b>2. How does it destroy our lives?</b><br>
+    It leads to hearing loss, stress, sleep disturbance, and increases heart-related health issues.</p>
+
+    <h2>Pollution Data (2000 - 2025)</h2>
+
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Noise Level Index</th>
+            <th>Health Impact Rate (Millions)</th>
+        </tr>
+
+        <tr><td>2000</td><td>55</td><td>1.2</td></tr>
+        <tr><td>2005</td><td>60</td><td>1.5</td></tr>
+        <tr><td>2010</td><td>68</td><td>1.9</td></tr>
+        <tr><td>2015</td><td>75</td><td>2.3</td></tr>
+        <tr><td>2020</td><td>82</td><td>2.8</td></tr>
+        <tr><td>2025</td><td>90</td><td>3.4</td></tr>
+    </table>
+
+    <h2><i>CAUSES</i></h2>
+
+    <img class="img" src="https://d1u7huky9c51vj.cloudfront.net/wp-content/uploads/2021/07/23195303/Noise-Pollution-Health-Effects-Collage-1-1-1024x819.png">
+
+    <p>
+        Noise pollution is mainly caused by vehicles, loud music systems, industrial machines, construction activities, and urban crowding.
+    </p>
+
+    <img class="medium-img" src="https://acropolis-wp-content-uploads.s3.us-west-1.amazonaws.com/01-Dangers-of-Noise-Pollution.png">
+
+    <h2>How to Prevent Noise Pollution?</h2>
+
+    <p>
+        Noise pollution can be reduced by using silencers in vehicles, avoiding loud music, planting trees, and following noise regulations in cities.
+    </p>
+
+    <!-- 🔥 ORANGE BOX ADDED HERE -->
+    <div class="info-box">
+        Noise pollution is harmful sound that disrupts health and the environment. It is managed through three main strategies: Source Control, which involves maintaining machinery and using silencers; Path Intervention, such as installing acoustic barriers or planting Green Muffler tree belts to absorb sound; and Legal Regulation, which enforces strict decibel limits in residential and silence zones near schools or hospitals. Protecting individuals with ear protection and soundproofing also helps mitigate daily impact.
+    </div>
+
+    <div class="row-images">
+        <img class="img1" src="https://i.pcmag.com/imagery/articles/01m1xpyp0RORaqyrRkWJt2h-1..v1625565896.jpg">
+        <img class="img2" src="https://t4.ftcdn.net/jpg/06/00/52/41/360_F_600524115_iQsFYXhPIKlAI18TwAtR3Bfj3y2trrT4.jpg">
+        <img class="img3" src="https://images.pexels.com/photos/374777/pexels-photo-374777.jpeg">
+    </div>
+
+    <div class="final-image">
+        <img src="https://img.freepik.com/premium-photo/serene-scene-person-meditating-nature-focusing-inner-peace-selflove_997534-56536.jpg?w=360">
+        <div class="final-text">
+            Keep The Noise Down,<br>
+            Or It Will Keep You Down
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

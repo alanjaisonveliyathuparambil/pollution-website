@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f5f5;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(55%);
+    }
+
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 70px;
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+
+    /* ===== CONTENT ===== */
+    .content {
+        width: 85%;
+        margin: auto;
+        padding: 40px 0;
+        font-size: 18px;
+        line-height: 1.8;
+        text-align: center;
+    }
+
+    .content p {
+        max-width: 900px;
+        margin: 10px auto;
+    }
+
+    h2 {
+        color: #0a1f44;
+        margin-top: 40px;
+    }
+
+    /* ===== TABLE ===== */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: white;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background: #0a1f44;
+        color: white;
+    }
+
+    /* ===== FULL IMAGE ===== */
+    .full-img {
+        width: 100%;
+        height: 80vh;
+        object-fit: cover;
+        margin-top: 30px;
+    }
+
+    /* ===== MEDIUM IMAGE ===== */
+    .medium-img {
+        width: 70%;
+        display: block;
+        margin: 30px auto;
+        border-radius: 10px;
+    }
+
+    /* ===== FIXED CENTER IMAGE ===== */
+    .img {
+        width: 70%;
+        display: block;
+        margin: 30px auto;
+        border-radius: 10px;
+    }
+
+    /* ===== 3 IMAGE ROW ===== */
+    .row-images {
+        width: 70%;
+        margin: 30px auto;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .img1, .img3 {
+        flex: 1;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .img2 {
+        flex: 2;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    /* ===== FINAL IMAGE TEXT ===== */
+    .final-image {
+        position: relative;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .final-image img {
+        width: 100%;
+        height: 70vh;
+        object-fit: cover;
+    }
+
+    .final-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.5);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+</style>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+    <img src="https://i0.wp.com/www.ecomena.org/wp-content/uploads/2014/08/water-pollution.jpg">
+    <div class="hero-text">WATER POLLUTION</div>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<div class="content">
+
+    <h2><i>INTRODUCTION</i></h2>
+    <p>
+        Water pollution occurs when harmful substances such as chemicals, waste, and plastics enter water bodies like rivers, lakes, and oceans.
+    </p>
+
+    <p><b>1. What is water pollution?</b><br>
+    Water pollution is contamination of water resources that makes them unsafe for drinking and living organisms.</p>
+
+    <p><b>2. How does it destroy our lives?</b><br>
+    It spreads diseases, destroys marine life, and affects the availability of clean drinking water.</p>
+
+    <h2>Pollution Data (2000 - 2025)</h2>
+
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Pollution Rate (Water Quality Index)</th>
+            <th>Death Rate (Millions)</th>
+        </tr>
+
+        <tr><td>2000</td><td>165</td><td>2.7</td></tr>
+        <tr><td>2005</td><td>180</td><td>3.1</td></tr>
+        <tr><td>2010</td><td>195</td><td>3.6</td></tr>
+        <tr><td>2015</td><td>210</td><td>4.0</td></tr>
+        <tr><td>2020</td><td>225</td><td>4.5</td></tr>
+        <tr><td>2025</td><td>240</td><td>5.0</td></tr>
+    </table>
+
+    <h2><i>CAUSES</i></h2>
+
+    <img class="full-img" src="https://www.nivabupa.com/uploads/Diseases_Caused_by_Water_Pollution_0624ff7785.png">
+
+    <p>
+        Water pollution is mainly caused by industrial waste, sewage discharge, plastic dumping, and agricultural chemicals entering water bodies.
+    </p>
+
+    <img class="medium-img" src="https://www.ruralhealthinfo.org/rural-monitor/wp-content/uploads/2019/06/contaminant-effects.jpg">
+
+    <h2>How to Prevent Water Pollution?</h2>
+
+    <p>
+        Water pollution can be reduced by treating sewage, reducing plastic usage, avoiding dumping waste into rivers, and using eco-friendly chemicals.
+    </p>
+
+    <!-- FIXED IMAGE (CENTERED) -->
+    <img class="img" src="https://faircado.com/wp-content/uploads/2022/09/image-9.png">
+
+    <div class="row-images">
+        <img class="img1" src="https://www.haskoning.com/-/media/images/websites/twinn/insights/blogs/automation-at-industrial-wastewater-treatment-plants.jpg">
+        <img class="img2" src="https://i.ytimg.com/vi/OahDdvKVy2c/maxresdefault.jpg">
+        <img class="img3" src="https://sensorex.com/wp-content/uploads/2020/05/ecology-trash-picking-up-garbage.jpg">
+    </div>
+
+    <div class="final-image">
+        <img src="https://static.toiimg.com/photo/116331360.cms">
+        <div class="final-text">
+            Water is Life ,<br>
+            Take Care of It
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

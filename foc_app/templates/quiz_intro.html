@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quiz Intro</title>
+<style>
+body{
+    margin:0;
+    height:100vh;
+    background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial;
+}
+.overlay{
+    background:rgba(0,0,0,0.5);
+    padding:60px;
+    border-radius:20px;
+    text-align:center;
+    color:white;
+}
+h1{
+    font-size:55px;
+}
+p{
+    font-size:20px;
+}
+.enter-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:18px 45px;
+    background:rgba(0,255,100,0.5);
+    color:white;
+    text-decoration:none;
+    border-radius:15px;
+    font-size:22px;
+    backdrop-filter:blur(5px);
+    transition:0.3s;
+}
+.enter-btn:hover{
+    transform:scale(1.08);
+}
+</style>
+</head>
+<body>
+<div class="overlay">
+    <h1>Pollution: The Invisible Enemy</h1>
+    <p>
+        Test your environmental knowledge and discover how small actions can save our planet.
+    </p>
+    <a href="/quiz/" class="enter-btn">
+        Enter Quiz
+    </a>
+</div>
+</body>
+</html>

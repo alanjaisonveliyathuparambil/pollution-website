@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Pollution Quiz</title>
+
+<style>
+
+body{
+
+    margin:0;
+
+    font-family:Arial;
+
+    background-image:url('https://images.unsplash.com/photo-1502082553048-f009c37129b9');
+
+    background-size:cover;
+    background-position:center;
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.quiz-container{
+
+    width:700px;
+
+    background:rgba(255,255,255,0.15);
+
+    padding:40px;
+
+    border-radius:20px;
+
+    backdrop-filter:blur(8px);
+
+    color:white;
+
+    text-align:center;
+}
+
+.question{
+    font-size:30px;
+    margin-bottom:30px;
+}
+
+.option{
+
+    display:block;
+
+    width:100%;
+
+    padding:15px;
+
+    margin:10px 0;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.option:hover{
+    transform:scale(1.03);
+}
+
+.correct{
+    background:green !important;
+    color:white;
+}
+
+.wrong{
+    background:red !important;
+    color:white;
+}
+
+.result-box{
+    display:none;
+}
+
+.result-box h1{
+    font-size:45px;
+}
+
+.result-box p{
+    font-size:22px;
+}
+
+.result-btn{
+
+    padding:15px 30px;
+
+    margin:10px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+    cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- CLICK SOUND -->
+
+<audio id="clickSound">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_270f49b47f.mp3?filename=click-124467.mp3" type="audio/mpeg">
+</audio>
+
+<div class="quiz-container">
+
+    <div id="quizBox">
+
+        <div class="question" id="question"></div>
+
+        <div id="options"></div>
+
+    </div>
+
+    <div class="result-box" id="resultBox">
+
+        <h1>Quiz Completed</h1>
+
+        <p id="scoreText"></p>
+
+        <button class="result-btn" onclick="window.location.href='/'">
+            Back to Home
+        </button>
+
+        <button class="result-btn" onclick="location.reload()">
+            Replay
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+const quizData = [
+
+{
+question:"Which pollution mainly affects breathing?",
+options:["Noise Pollution","Air Pollution","Soil Pollution","Water Pollution"],
+correct:1
+},
+
+{
+question:"Which gas contributes most to global warming?",
+options:["Oxygen","Nitrogen","Carbon Dioxide","Hydrogen"],
+correct:2
+},
+
+{
+question:"Which is the best way to reduce pollution?",
+options:["Burn Plastic","Recycle Waste","Throw Waste in River","Cut Trees"],
+correct:1
+},
+
+{
+question:"What helps reduce air pollution?",
+options:["Planting Trees","Burning Fuel","Using More Cars","Factory Smoke"],
+correct:0
+},
+
+{
+question:"Which energy source is eco-friendly?",
+options:["Coal","Petrol","Solar Energy","Diesel"],
+correct:2
+}
+
+];
+
+let currentQuestion=0;
+let score=0;
+
+const question=document.getElementById("question");
+const options=document.getElementById("options");
+
+function loadQuestion(){
+
+    const q=quizData[currentQuestion];
+
+    question.innerText=q.question;
+
+    options.innerHTML="";
+
+    q.options.forEach((option,index)=>{
+
+        const btn=document.createElement("button");
+
+        btn.innerText=option;
+
+        btn.classList.add("option");
+
+        btn.onclick=()=>checkAnswer(btn,index);
+
+        options.appendChild(btn);
+    });
+}
+
+function checkAnswer(button,index){
+
+    document.getElementById("clickSound").play();
+
+    const correct=quizData[currentQuestion].correct;
+
+    const buttons=document.querySelectorAll(".option");
+
+    buttons.forEach(btn=>btn.disabled=true);
+
+    if(index===correct){
+
+        button.classList.add("correct");
+
+        button.innerText+=" ✓ Correct";
+
+        score++;
+
+    }else{
+
+        button.classList.add("wrong");
+
+        button.innerText+=" ✗ Wrong";
+
+        buttons[correct].classList.add("correct");
+
+        buttons[correct].innerText+=" ✓ Correct Answer";
+    }
+
+    setTimeout(()=>{
+
+        currentQuestion++;
+
+        if(currentQuestion<quizData.length){
+
+            loadQuestion();
+
+        }else{
+
+            showResult();
+        }
+
+    },2000);
+}
+
+function showResult(){
+
+    document.getElementById("quizBox").style.display="none";
+
+    document.getElementById("resultBox").style.display="block";
+
+    let message="";
+
+    if(score===5){
+
+        message="Score 5/5 → Earth Protector 🌍";
+
+    }else if(score>=3){
+
+        message="Score "+score+"/5 → Eco Learner ♻️";
+
+    }else{
+
+        message="Score "+score+"/5 → Pollution Fighter Needed 🚨";
+    }
+
+    document.getElementById("scoreText").innerText=message;
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+
+</html>

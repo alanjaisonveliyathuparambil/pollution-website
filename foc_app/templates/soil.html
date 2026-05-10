@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f5f5;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(55%);
+    }
+
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 70px;
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+
+    /* ===== CONTENT ===== */
+    .content {
+        width: 85%;
+        margin: auto;
+        padding: 40px 0;
+        font-size: 18px;
+        line-height: 1.8;
+        text-align: center;
+    }
+
+    .content p {
+        max-width: 900px;
+        margin: 10px auto;
+    }
+
+    h2 {
+        color: #0a1f44;
+        margin-top: 40px;
+    }
+
+    /* ===== TABLE ===== */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: white;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background: #0a1f44;
+        color: white;
+    }
+
+    /* ===== FULL IMAGE ===== */
+    .full-img {
+        width: 100%;
+        height: 80vh;
+        object-fit: cover;
+        margin-top: 30px;
+    }
+
+    /* ===== MEDIUM IMAGE ===== */
+    .medium-img {
+        width: 70%;
+        display: block;
+        margin: 30px auto;
+        border-radius: 10px;
+    }
+
+    /* ===== CENTER IMAGE ===== */
+    .img {
+        width: 70%;
+        display: block;
+        margin: 30px auto;
+        border-radius: 10px;
+    }
+
+    /* ===== 3 IMAGE ROW ===== */
+    .row-images {
+        width: 70%;
+        margin: 30px auto;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .img1, .img3 {
+        flex: 1;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .img2 {
+        flex: 2;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    /* ===== FINAL IMAGE TEXT ===== */
+    .final-image {
+        position: relative;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .final-image img {
+        width: 100%;
+        height: 70vh;
+        object-fit: cover;
+    }
+
+    .final-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.5);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+</style>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+    <!-- TEMP IMAGE (replace later) -->
+    <img src="https://www.iberdrola.com/documents/20125/40615/suelo_746x419.jpg/0c7d2a0c-f3a8-0ec0-9ad7-61f7fbf023b6?t=1627531595008">
+    <div class="hero-text">SOIL POLLUTION</div>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<div class="content">
+
+    <h2><i>INTRODUCTION</i></h2>
+    <p>
+        Soil pollution occurs when harmful chemicals, waste, and toxic substances mix with the soil, making it infertile and dangerous for living organisms.
+    </p>
+
+    <p><b>1. What is soil pollution?</b><br>
+    Soil pollution is the contamination of soil with harmful substances that reduce its quality and productivity.</p>
+
+    <p><b>2. How does it destroy our lives?</b><br>
+    It reduces crop growth, contaminates food chains, and affects human health through toxic substances.</p>
+
+    <h2>Pollution Data (2000 - 2025)</h2>
+
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Soil Contamination Index</th>
+            <th>Health Impact Rate (Millions)</th>
+        </tr>
+
+        <tr><td>2000</td><td>60</td><td>1.3</td></tr>
+        <tr><td>2005</td><td>68</td><td>1.6</td></tr>
+        <tr><td>2010</td><td>75</td><td>2.0</td></tr>
+        <tr><td>2015</td><td>82</td><td>2.4</td></tr>
+        <tr><td>2020</td><td>90</td><td>3.0</td></tr>
+        <tr><td>2025</td><td>98</td><td>3.6</td></tr>
+    </table>
+
+    <h2><i>CAUSES</i></h2>
+
+    <!-- TEMP IMAGE -->
+    <img class="medium-img" src="https://i0.wp.com/theiashub.com/upsc/wp-content/uploads/2025/01/2-13.jpg">
+
+    <p>
+        Soil pollution is mainly caused by industrial waste dumping, excessive use of pesticides and fertilizers, plastic waste, and chemical leakage.
+    </p>
+
+    <img class="medium-img" src="https://cdn-images.prepp.in/public/image/136504d1c3bef30d344484e35f2d1c8a.png?tr=w-492,h-512,c-force">
+
+    <h2>How to Prevent Soil Pollution?</h2>
+
+    <p>
+        Soil pollution can be reduced by using organic farming methods, reducing plastic waste, proper waste disposal, and avoiding harmful chemical fertilizers.
+    </p>
+
+    <img class="img" src="https://www.collidu.com/media/catalog/product/img/c/1/c1a3a06f861ec918483138d766325824becfd4e7f5bf3f3440c8893e9bee4485/soil-pollution-slide4.png">
+
+    <div class="row-images">
+        <img class="img1" src="https://www.seedagritech.com/wp-content/uploads/2019/01/organic-farming.jpg">
+        <img class="img2" src="https://news.cgtn.com/news/3d3d674d314d7a4e31457a6333566d54/img/8ed1e1f4ff324bd7a17bb5fb40da9e13/8ed1e1f4ff324bd7a17bb5fb40da9e13.jpg">
+        <img class="img3" src="https://i.ytimg.com/vi/Lfj8SKFlTpI/maxresdefault.jpg">
+    </div>
+
+    <div class="final-image">
+        <img src="https://www.usbiopower.com/hubfs/Blog%20Art/AOE-Blog-Organic-Soil.jpg">
+        <div class="final-text">
+            Soil is The Soul<br>
+            of The Earth
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
